@@ -1,6 +1,7 @@
 package com.example.myblog
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,32 +10,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myblog.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.rvBlog.layoutManager = LinearLayoutManager(this)
-        displayBlogs()
+        binding.rvBlogger.layoutManager= LinearLayoutManager(this)
 
+        showBlogs()
     }
 
-    fun displayBlogs(){
-        val blog1 = Blog("Anna", "070001029203", "annie@gmail.com", "")
-        val blog2 = Blog("Barry", "070001029203", "barry@gmail.com", "")
-        val blog3 = Blog("Candy", "070001029203", "candy@gmail.com", "")
-        val blog4 = Blog("Didier", "070001029203", "didier@gmail.com", "")
-        val blog5 = Blog("Euphy", "070001029203", "euphy@gmail.com", "")
-        val blog6 = Blog("Fave", "070001029203", "fave@gmail.com", "")
+    fun showBlogs(){
+        val blog1 = Blog("Susan Favour", "27th March 2024", "My life in Crime", "If you compare ChatGPT and Google Bard, one of the advantages Google’s Bard has had until now is that it answers you using current search data, while ChatGPT has been stuck working off data it was trained on from 2021.")
+        val blog2 = Blog("Maureen Njeri", "27th March 2024", "My life in Crime", "If you compare ChatGPT and Google Bard, one of the advantages Google’s Bard has had until now is that it answers you using current search data, while ChatGPT has been stuck working off data it was trained on from 2021...")
+        val blog3 = Blog("Michael B.Jordan", "27th March 2024", "My life in Crime", "If you compare ChatGPT and Google Bard, one of the advantages Google’s Bard has had until now is that it answers you using current search data, while ChatGPT has been stuck working off data it was trained on from 2021...")
+        val blog4 = Blog("Rege Jean Page", "27th March 2024", "My life in Crime", "If you compare ChatGPT and Google Bard, one of the advantages Google’s Bard has had until now is that it answers you using current search data, while ChatGPT has been stuck working off data it was trained on from 2021...")
+        val blog5 = Blog("Uche Montana", "27th March 2024", "My life in Crime", "If you compare ChatGPT and Google Bard, one of the advantages Google’s Bard has had until now is that it answers you using current search data, while ChatGPT has been stuck working off data it was trained on from 2021...")
+        val blog6 = Blog("Emmah Kanyi", "27th March 2024", "My life in Crime", "If you compare ChatGPT and Google Bard, one of the advantages Google’s Bard has had until now is that it answers you using current search data, while ChatGPT has been stuck working off data it was trained on from 2021...")
 
-        val contactList = listOf(blog1, blog2, blog3, blog4, blog5, blog6)
-        val contactsAdapter = BlogAdapter(contactList)
-        binding.rvBlog.adapter = blogAdapter
-
+        val blogList = listOf(blog1,blog2,blog3,blog4,blog5, blog6,)
+        val blogsAdapter = MyBlogsAdapter(blogList)
+        binding.rvBlogger.adapter = blogsAdapter
     }
-
-
-    }
-
 }
